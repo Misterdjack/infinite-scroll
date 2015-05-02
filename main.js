@@ -1,15 +1,16 @@
 
 
 var appendItem = function (data) {
-	var item = $('<li>');
-	$('#container-list').append(item);
+	var item = $('div').append(data);
+	$('.container').append(item);
+	// console.log(data);
 };
 
 $(window).on('scroll', function scrollHandler() {
 		var scrollBottom = $(document).height() - $(window).scrollTop() - $(window).height();
 		// var distanceFromTop = $(document).height() - $(window).scrollTop();
 		if(scrollBottom < $(window).height()) {
-			var lastItemEl = $('.item:last');
+			var lastItemEl = $('.list').clone();
 			console.log(lastItemEl);
 			appendItem(lastItemEl);
 		}
