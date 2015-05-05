@@ -12,13 +12,14 @@ var freebird = function(e){
   	var selectedItem = $(this).closest('.item');
   	var selectedImage = selectedItem.attr('data-html');
   	$('.modal-body').html(selectedImage);
+  	console.log(selectedImage);
 
 };
 
 // jQuery event listeners
 $(document).on('ready', function(){
 
-	// Global variables
+	// Local variables
 	var containerContents = $(".container").html();
 	var container = '<div class="container">' + containerContents + '</div>';
 
