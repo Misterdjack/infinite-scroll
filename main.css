@@ -1,9 +1,11 @@
+/*Styles*/
+
 body {
 	background-image: url(images/symphony.png);
 }
 
 .modal-body img {
 	width: 100%;
-	padding: 30px;
+	padding: 20px;
 }
 
