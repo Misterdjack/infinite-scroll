@@ -5,36 +5,13 @@ var freebird = function(e){
 
   	$('#myModal').modal('show');
 
-  	var selectedItem = $(this).closest('.item').clone();
-  	var selectedSrc = selectedItem.attr('data-image');
-  	var selectedImage = selectedItem.html('<img class="images" src="' + selectedSrc + '">');
-
-  	console.log(selectedImage);
+  	var selectedItem = $(this).closest('.item');
+  	var selectedImage = selectedItem.attr('data-html');
   	$('.modal-body').html(selectedImage);
-
 };
-
-var popover = function(e){
-  e.preventDefault();
-
-  $('#popoverOption').popover({ trigger: "hover", html:true});
-
-
-};
-
-
-// Bootstrap popover
-$('.item').popover({ trigger: "hover", html:true});
-
-$('#popoverOption').popover({ trigger: "hover", html:true});
 
 // jQuery event listeners
 $(document).on('ready', function(){
-
-	// Opt in toggle initiallizer 
-	$(function () {
-	  $('[data-toggle="popover"]').popover()
-	})
 
 	// Global variables
 	var containerContents = $(".container").html();
@@ -61,9 +38,6 @@ $(document).on('ready', function(){
 
 	// Launch modal
 	$(document).on('click', '.item', freebird);
-
-	$(document).on('popover', '#popoverOption', popover);
-
 
 
 });	

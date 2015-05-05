@@ -2,12 +2,8 @@ body {
 	background-image: url(images/symphony.png);
 }
 
-.images {
-	width: 70%;
+.modal-body img {
+	width: 100%;
 	padding: 30px;
 }
 
-/*.item {
-	width: 200px;
-	margin: auto;
-}*/
