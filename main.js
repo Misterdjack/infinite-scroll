@@ -2,6 +2,12 @@
 // Client Side Logic //
 ///////////////////////
 
+// Global variables for tests
+var containers = $('.container').length
+console.log(containers);
+var scrollHandler;
+
+
 // Modal helper function, finds appropriate image
 var freebird = function(e){
 	e.preventDefault();
@@ -16,14 +22,13 @@ var freebird = function(e){
 
 };
 
-// jQuery event listeners
-$(document).on('ready', function(){
+// Global variables for scrollHandler
+var containerContents = $(".container").html();
+var container = '<div class="container">' + containerContents + '</div>';
 
-	// Local variables
-	var containerContents = $(".container").html();
-	var container = '<div class="container">' + containerContents + '</div>';
-
-	// Scroll event
+// Scroll event
+var	scrollHandler = function ()	{		
+				
 	$(window).on('scroll', function() {
 		var scrollBottom = $(document).height() - $(window).scrollTop() - $(window).height();
 
@@ -45,8 +50,15 @@ $(document).on('ready', function(){
 			}
 		}    
 	});
+};
 
+// jQuery event listeners
+$(document).on('ready', function(){
+
+
+	scrollHandler();
 	// Launch modal
 	$(document).on('click', '.item', freebird);
 
 });	
+
