@@ -4,8 +4,8 @@
 
 // Global variables for tests
 var containers = $('.container').length
-console.log(containers);
-var scrollHandler;
+// console.log(containers);
+// var scrollHandler;
 
 
 // Modal helper function, finds appropriate image
