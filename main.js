@@ -2,33 +2,28 @@
 // Client Side Logic //
 ///////////////////////
 
-// Global variables for tests
-var containers = $('.container').length
-// console.log(containers);
-// var scrollHandler;
+var app = {
 
+// Modal helper function, finds clicked image
+	freebird : function(e){
+		e.preventDefault();
+		// Show hidden modal
+	  	$('#myModal').modal('show');
 
-// Modal helper function, finds appropriate image
-var freebird = function(e){
-	e.preventDefault();
-	// Show hidden modal
-  	$('#myModal').modal('show');
+	  	// find image data on clicked item and render in modal
+	  	var selectedItem = $(this).closest('.item');
+	  	var selectedImage = selectedItem.attr('data-html');
+	  	$('.modal-body').html(selectedImage);
+	  	console.log(selectedImage);
 
-  	// find image data on clicked item and render in modal
-  	var selectedItem = $(this).closest('.item');
-  	var selectedImage = selectedItem.attr('data-html');
-  	$('.modal-body').html(selectedImage);
-  	console.log(selectedImage);
-
-};
-
-// Global variables for scrollHandler
-var containerContents = $(".container").html();
-var container = '<div class="container">' + containerContents + '</div>';
+	},
 
 // Scroll event
-var	scrollHandler = function ()	{		
-				
+ 	scrollHandler : function ()	{		
+	// Local variables for scrollHandler
+	var containerContents = $(".container").html();
+	var container = '<div class="container">' + containerContents + '</div>';			
+
 	$(window).on('scroll', function() {
 		var scrollBottom = $(document).height() - $(window).scrollTop() - $(window).height();
 
@@ -47,18 +42,19 @@ var	scrollHandler = function ()	{
 			$(window).scrollTop($(".container").height());
 			if ($(".container").length > 3) {
 				$(".container").last().remove();
-			}
-		}    
-	});
+				}
+			}    
+		});
+	}
 };
 
 // jQuery event listeners
 $(document).on('ready', function(){
-
-
-	scrollHandler();
+	
+	// Initializes infinite scroll functionality
+	app.scrollHandler();
+	
 	// Launch modal
-	$(document).on('click', '.item', freebird);
+	$(document).on('click', '.item', app.freebird);
 
-});	
-
+});
