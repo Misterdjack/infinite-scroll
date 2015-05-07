@@ -15,7 +15,18 @@
 
   <!-- include source files here... -->
   <script type="text/javascript" src="../main.js"></script>
+  <script type="text/javascript">
+  (function(){
+      //this loads fixtures from a fixtures folder 
+      //relative to where SpecRunner.html lives
+      jasmine.getFixtures()
+          .fixturesPath = 'spec/fixtures/'; 
+      
+      var jasmineEnv = jasmine.getEnv();
 
+      jasmineEnv.updateInterval = 1000;
+  })();
+    </script>
   <!-- include spec files here... -->
   <script type="text/javascript" src="spec.js"></script>
 
