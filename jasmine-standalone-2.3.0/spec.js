@@ -1,4 +1,4 @@
-
+jasmine.getFixtures().fixturesPath = 'spec/fixtures';
 
 describe("Testing the freebird function", function() {
 
