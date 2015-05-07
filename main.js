@@ -2,28 +2,28 @@
 // Client Side Logic //
 ///////////////////////
 
-// Modal helper function, finds appropriate image
-var freebird = function(e){
-	e.preventDefault();
-	// Show hidden modal
-  	$('#myModal').modal('show');
+var app = {
 
-  	// find image data on clicked item and render in modal
-  	var selectedItem = $(this).closest('.item');
-  	var selectedImage = selectedItem.attr('data-html');
-  	$('.modal-body').html(selectedImage);
-  	console.log(selectedImage);
+// Modal helper function, finds clicked image
+	freebird : function(e){
+		e.preventDefault();
+		// Show hidden modal
+	  	$('#myModal').modal('show');
 
-};
+	  	// find image data on clicked item and render in modal
+	  	var selectedItem = $(this).closest('.item');
+	  	var selectedImage = selectedItem.attr('data-html');
+	  	$('.modal-body').html(selectedImage);
+	  	// console.log(selectedImage);
 
-// jQuery event listeners
-$(document).on('ready', function(){
+	},
 
-	// Local variables
+// Scroll event
+ 	scrollHandler : function ()	{		
+	// Local variables for scrollHandler
 	var containerContents = $(".container").html();
-	var container = '<div class="container">' + containerContents + '</div>';
+	var container = '<div class="container">' + containerContents + '</div>';			
 
-	// Scroll event
 	$(window).on('scroll', function() {
 		var scrollBottom = $(document).height() - $(window).scrollTop() - $(window).height();
 
@@ -42,11 +42,19 @@ $(document).on('ready', function(){
 			$(window).scrollTop($(".container").height());
 			if ($(".container").length > 3) {
 				$(".container").last().remove();
-			}
-		}    
-	});
+				}
+			}    
+		});
+	}
+};
 
+// jQuery event listeners
+$(document).on('ready', function(){
+	
+	// Initializes infinite scroll functionality
+	app.scrollHandler();
+	
 	// Launch modal
-	$(document).on('click', '.item', freebird);
+	$(document).on('click', '.item', app.freebird);
 
-});	
+});
