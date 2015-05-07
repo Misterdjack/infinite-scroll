@@ -14,7 +14,7 @@ var app = {
 	  	var selectedItem = $(this).closest('.item');
 	  	var selectedImage = selectedItem.attr('data-html');
 	  	$('.modal-body').html(selectedImage);
-	  	console.log(selectedImage);
+	  	// console.log(selectedImage);
 
 	},
 
