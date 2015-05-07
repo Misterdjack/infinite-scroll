@@ -15,11 +15,11 @@ var app = {
 	  	var selectedImage = selectedItem.attr('data-html');
 	  	$('.modal-body').html(selectedImage);
 	  	// console.log(selectedImage);
-
+	  	bar = e;
 	},
 
 // Scroll event
- 	scrollHandler : function ()	{		
+ 	scrollHandler : function (e)	{		
 	// Local variables for scrollHandler
 	var containerContents = $(".container").html();
 	var container = '<div class="container">' + containerContents + '</div>';			
@@ -45,6 +45,9 @@ var app = {
 				}
 			}    
 		});
+	
+	bar = e;
+
 	}
 };
 
